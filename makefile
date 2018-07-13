@@ -1,4 +1,4 @@
-kentSrc = ../../..
+kentSrc = /kent/kent/src
 # Make your private trackDb with 
 #	make update
 # Your private trackDb with additional options, for example:
@@ -27,179 +27,14 @@ kentSrc = ../../..
 # trackDb on hgwdev unless the db is specified explicitly on the 
 # command line.
 
-include ../../../inc/common.mk
+include ${kentSrc}/inc/common.mk
 
-DBS = \
-	ailMel1 \
-	allMis1 \
-	amaVit1 geoFor1 melUnd1 \
-	ambMex1 \
-	ancCey1 \
-	anoCar1 anoCar2 \
-	anoGam1 anoGam3 \
-	aotNan1 \
-	apiMel1 \
-	apiMel2	\
-	aplCal1 \
-	aptMan1 \
-	aquChr2 \
-	ascSuu1 \
-	balAcu1 \
-	bisBis1 \
-	bosTau2 bosTau3 bosTau4 bosTau5 bosTau6 bosTau7 bosTau8 \
-	braFlo1 braFlo2 \
-	bruMal1 bruMal2 \
-	burXyl1 \
-	caeAng1 caeAng2 \
-	caeJap1 caeJap2 caeJap3 caeJap4 \
-	caePb1 caePb2 caePb3 \
-	caeRem1 caeRem2 caeRem3 caeRem4 \
-	caeSp111 \
-	caeSp51 \
-	caeSp71 \
-	caeSp91 \
-	calJac1 calJac3 \
-	calMil1 \
-	canFam1 canFam2 canFamPoodle1 canFam3 \
-	casCan1 \
-	cavApe1 cavPor3 \
-	cb1 cb2 cb3 cb4 \
-	ce2 ce3 ce4 ce5 ce6 ce7 ce8 ce9 ce10 ce11 \
-	cebCap1 \
-	centromeres1 \
-	cerAty1 \
-	cerSim1 \
-	chiLan1o \
-	chlSab2 \
-	choHof1 \
-	chrPic1 chrPic2 \
-	ci1 ci2 ci3 cioSav2 \
-	cioSav1 \
-	colAng1 \
-	criGri1 criGriChoV1 criGriChoV2 \
-	danRer3 danRer4 danRer5 danRer6 danRer7 danRer10 danRer11 \
-	dasNov1 dasNov2 dasNov3 \
-	dipOrd1 dipOrd2 \
-	dirImm1 \
-	dm1 dm2 dm3 dm6 \
-	dp2 dp3 \
-	droAna1 droAna2 \
-	droEre1 \
-	droGri1 \
-	droMoj1 droMoj2 \
-	droPer1 \
-	droSec1 \
-	droSim1 droSim2 \
-	droVir1 droVir2 \
-	droYak1 droYak2 \
-	eboVir3 eboVir2 eboVir1 bunEbo1 sudEbo1 resEbo1 taiEbo1 zaiEbo1 \
-	echTel1 echTel2 \
-	equCab1 equCab2 equCab3 \
-	eriEur1 eriEur2 \
-	eulFla1 \
-	eulMac1 \
-	falciparum \
-	felCat3 felCat4 felCat5 felCat8 felCat9 \
-	ficAlb1 \
-	fr1 fr2 fr3 \
-	fukDam1 \
-	gadMor1 \
-	galGal2 galGal3 galGal4 galGal5 \
-	galVar1 \
-	gasAcu1 \
-	gorGor1 gorGor2 gorGor3 gorGor4 gorGor5 \
-	h1n1 \
-	haeCon1 haeCon2 \
-	hetBac1 \
-	hetGla1 hetGla2 \
-	hg16 hg17 hg18 hg19 hg38 hg19Haps hg19Patch2 hg19Patch5 hg19Patch9 hg19Patch10 hg38Patch7 hg38Patch9 hg38Patch11 \
-	latCha1 \
-	loaLoa1 \
-	loxAfr1 loxAfr2 loxAfr3 \
-	macEug1 macEug2 \
-	macFas5 \
-	macNem1 \
-	manLeu1 \
-	manPen1 \
-	marVir1 \
-	melGal1 melGal5 \
-	melHap1 \
-	melInc1 melInc2 \
-	micMur1 micMur2 micMur3 \
-	micOch1 \
-	mm6 mm7 mm8 mm9 mm10 mm10Patch1 mm10Strains1 mm10Patch4 \
-	monDom1 monDom4 monDom5 \
-	musFur1 \
-	myoLuc1 myoLuc2 \
-	nanPar1 \
-	nasLar1 \
-	necAme1 \
-	nemVec1 \
-	neoSch1 \
-	nomLeu1 nomLeu2 nomLeu3 \
-	ochPri2 ochPri3 \
-	oncVol1 \
-	orcOrc1 \
-	oreNil1 oreNil2 oreNil3 \
-	ornAna1 ornAna2 \
-	oryCun1 oryCun2 \
-	oryLat1 oryLat2 \
-	otoGar1 otoGar3 \
-	oviAri1 oviAri3 oviAri4 \
-	oxyTri2 \
-	panPan1 panPan2 \
-	panRed1 \
-	panTro1 panTro2 panTro3 panTro4 panTro5 panTro6 \
-	papHam1 papAnu2 papAnu3 papAnu4 \
-	petMar1 petMar2 petMar3 \
-	plasFalc3D7V12 \
-	poeRet1 \
-	ponAbe2 ponAbe3 \
-	priExs1 \
-	priPac1 priPac2 priPac3 \
-	proCap1 \
-	proCoq1 \
-	pteVam1 tarSyr1 tarSyr2 \
-	repeats2 \
-	rheMac2 rheMac3 rheMac7 rheMac8 \
-	rhiBie1 \
-	rhiRox1 \
-	rn3 rn4 rn5 rn6 \
-	rouAeg1 \
-	sacCer1 sacCer2 sacCer3 \
-	saiBol1 \
-	sarHar1 \
-	sc1 \
-	sorAra1 sorAra2 \
-	speTri1 speTri2 \
-	strPur1 strPur2 strPur4 \
-	strRat1 strRat2 \
-	susScr1 susScr2 susScr3 susScr11 \
-	taeGut1 taeGut2 \
-	tetNig1 tetNig2 \
-	thaSir1 \
-	triCas2 \
-	triMan1 \
-	triSpi1 \
-	triSui1 \
-	tupBel1 \
-	tupChi1 \
-	turTru1 turTru2 \
-	venter1 \
-	vicPac1 vicPac2 \
-	xenLae2 \
-	xenTro1 xenTro2 xenTro3 xenTro7 xenTro9
-
-ARCHIVED_DBS = \
-	rheMac1 \
-	danRer1 \
-	mm5 \
-	mm6 \
-	danRer2
+DBS = sacCer3
+ARCHIVED_DBS =
 
 # if trix build breaks, disable by setting to /bin/true instead of ./buildTrix
-# BUILD_TRIX = /bin/true
-BUILD_TRIX = ./buildTrix
+BUILD_TRIX = /bin/true
+# BUILD_TRIX = ./buildTrix
 HIVE_TRIX = /hive/data/inside/trix
 DATA_TRIX = /data/trix
 ALPHA_MACHINE = hgwdev.cse.ucsc.edu

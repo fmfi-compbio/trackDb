@@ -16,7 +16,7 @@ local=''
 strict=''
 raName=''
 grpSql=''
-sqlDir='../../lib'
+sqlDir='/kent/kent/src/hg/lib'
 while [[ $1 == -* ]] ; do
     case $1 in
         -release=*)
