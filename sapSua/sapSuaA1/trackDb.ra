@@ -1,0 +1,129 @@
+track gap override
+visibility hide
+
+track illumina
+shortLabel Illumina (alignments)
+longLabel Illumina (sampled alignments)
+group map
+type bam
+visibility hide
+
+track illuminabw
+shortLabel Illumina (coverage)
+longLabel Illumina (coverage)
+group map
+type bigWig 0 300
+visibility hide
+
+
+track minion
+shortLabel MinION (alignments)
+longLabel MinION (sampled alignments)
+group map
+type bam
+visibility hide
+
+track minionbw
+shortLabel MinION (coverage)
+longLabel MinION (sampled alignments coverage)
+group map
+type bigWig 0 80
+visibility hide
+
+track rnaseq
+shortLabel RNA-seq (alignments)
+longLabel RNA-seq by HISAT2 (alignments)
+group rna
+type bam
+
+track rnaseqbw
+shortLabel RNA-seq (coverage)
+longLabel RNA-seq by HISAT2 (coverage)
+visibility dense
+group rna
+type bigWig 0 500
+
+track unconfirmed
+shortLabel Unconfirmed bases
+longLabel Bases unconfirmed by Pilon
+group map
+type bigWig 0 1
+maxHeightPixels 100:16:8
+visibility hide
+
+track trinity
+shortLabel RNA-seq transcripts
+longLabel RNA-seq transcripts assembled by Trinity
+group rna
+type psl
+
+track selfChain100_90
+shortLabel Self aln >90%id
+longLabel Self alignments with length >100bp, identity >90%
+group varRep
+type chain sapSuaA1
+
+track selfChain300_70
+shortLabel Self aln >70%id
+longLabel Self alignments with length >300bp, identity >70%
+group varRep
+type chain sapSuaA1
+
+track augustus
+shortLabel Augustus 
+longLabel Augustus transcript hints, M.capitatus parameters
+group genes
+visibility pack
+color 12,12,120
+type genePred
+baseColorUseCds given
+baseColorDefault genomicCodons
+intronGap 12
+exonArrows on
+priority 1
+
+track tRNAscan
+shortLabel tRNA Genes
+longLabel Transfer RNA Genes Identified with tRNAscan-SE
+group genes
+visibility hide
+color 0,20,150
+type bed 12
+nextItemButton on
+priority 10
+
+track Rfam
+shortLabel RNA genes by Rfam
+longLabel Non-coding RNA genes found by Rfam
+group genes
+visibility hide
+color 0,20,150
+type bedDetail 14
+nextItemButton on
+url http://rfam.xfam.org/family/$$
+urlLabel Rfam:
+priority 11
+
+track mtdna
+shortLabel mtDNA genes
+longLabel Coding and non-coding genes in mtDNA by mfannot
+group genes
+visibility hide
+color 12,12,120
+type genePred
+#baseColorUseCds given
+#baseColorDefault genomicCodons
+intronGap 12
+exonArrows on
+priority 12
+
+
+track rmskAll
+shortLabel RepeatMasker 
+longLabel Repeating Elements by RepeatMasker (species fungi)
+group varRep
+visibility dense
+spectrum on
+type rmsk
+maxWindowToDraw 10000000
+canPack off

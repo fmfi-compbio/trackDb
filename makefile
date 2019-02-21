@@ -29,7 +29,7 @@ kentSrc = /kent/kent/src
 
 include ${kentSrc}/inc/common.mk
 
-DBS = sacCer3
+DBS = sacCer3 magCapA5 magIngA4 sapFunA1 sapSuaA1
 ARCHIVED_DBS =
 
 # if trix build breaks, disable by setting to /bin/true instead of ./buildTrix
@@ -53,7 +53,7 @@ update: ${DBS:%=%_update}
 # see kent/src/product/ex.hg/conf for details
 
 alpha: clean
-	${GIT} pull
+	#${GIT} pull
 	${MKDIR} ${CGI_BIN}/encode
 	${MAKE} alpha_all
 
@@ -64,7 +64,7 @@ alpha_all: ${DBS:%=%_alpha}
 	./checkMetaDb alpha metaDb $*
 	rm -f ${HIVE_TRIX}/$*_trackDb.{ixx,ix}}
 	HGDB_TRACKDB=trackDb ${BUILD_TRIX} trackDb metaDb cv/alpha/cv.ra ${ALPHA_MACHINE} ${HIVE_TRIX} $*
-	./makeTrixLinks trackDb ${HIVE_TRIX} $*
+	#./makeTrixLinks trackDb ${HIVE_TRIX} $*
 
 onbeta:	/cluster/home/${USER}/.hg.conf.beta
 

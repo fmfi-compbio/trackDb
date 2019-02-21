@@ -1,0 +1,222 @@
+track gap override
+visibility hide
+
+track genes3
+trackHandler sgdGene
+shortLabel Protein coding genes
+longLabel Protein coding genes v.3
+group genes
+visibility pack
+color 12,12,120
+type genePred
+directUrl /data/magCapA5/proteins/%s.html
+baseColorUseCds given
+baseColorDefault genomicCodons
+intronGap 12
+exonArrows on
+priority 1
+
+track genes3plain
+table genes3
+shortLabel Genes (plain view)
+longLabel Protein coding genes v.3, with systematic MCA names shown
+group genes
+visibility hide
+color 12,12,120
+type genePred
+baseColorUseCds given
+baseColorDefault genomicCodons
+intronGap 12
+exonArrows on
+priority 4
+
+searchTable genes3
+searchType genePred
+searchMethod prefix
+shortCircuit 1
+searchPriority 1
+
+searchName geneNames
+searchTable genes3
+searchType genePred
+searchPriority 100
+searchDescription Gene names
+xrefTable sgdToName
+xrefQuery select name, value from %s where value like '%s%%'
+
+track rnaGenes
+shortLabel RNA Genes
+longLabel RNA genes
+group genes
+visibility pack
+color 0,20,150
+type bed 12
+nextItemButton on
+priority 3
+
+searchTable rnaGenes
+searchType bed
+searchPriority 100
+searchMethod prefix
+
+
+track unconfirmed
+shortLabel Unconfirmed bases
+longLabel Bases unconfirmed by Pilon
+group map
+type bigWig 0 1
+maxHeightPixels 100:16:8
+
+track rnaseqbw
+shortLabel RNA-seq (coverage)
+longLabel RNA-seq (coverage)
+visibility dense
+group rna
+type bigWig 0 500
+
+track rnaseq
+shortLabel RNA-seq (alignments)
+longLabel RNA-seq (alignments)
+group rna
+type bam
+
+track illumina
+shortLabel Illumina (alignments)
+longLabel Illumina (alignments)
+group map
+type bam
+
+track illuminabw
+shortLabel Illumina (coverage)
+longLabel Illumina (coverage)
+group map
+type bigWig 0 300
+
+track pacbio 
+shortLabel PacBio (alignments)
+longLabel PacBio (alignments)
+group map
+type bam
+
+track pacbiobw
+shortLabel PacBio (coverage)
+longLabel PacBio (coverage)
+group map
+type bigWig 0 50
+
+track minion
+shortLabel MinION (alignments)
+longLabel MinION (alignments)
+group map
+type bam
+
+track minionbw
+shortLabel MinION (coverage)
+longLabel MinION (coverage)
+group map
+type bigWig 0 50
+
+track selfChain100_90
+shortLabel Self aln >90%id
+longLabel Self alignments with length >100bp, identity >90%
+group varRep
+type chain magCapA5
+
+track selfChain300_70
+shortLabel Self aln >70%id
+longLabel Self alignments with length >300bp, identity >70%
+group varRep
+type chain magCapA5
+
+track magIngA4Chain
+shortLabel Aln with magIngA4
+longLabel Alignments with magIngA4
+group compGeno
+type chain magIngA4
+
+track strains
+shortLabel Polymorphisms
+longLabel Differences between reference and strains
+group varRep
+type vcfTabix
+
+####### composite track strain coverage
+track strainCov
+compositeTrack on
+type bigWig 0 200
+shortLabel Illumina coverage strains
+longLabel Illumina coverage in different strains 
+group varRep
+visibility hide
+
+track magCapAbw
+shortLabel magCapA
+longLabel magCapA
+parent strainCov
+type bigWig 0 250
+visibility full
+maxHeightPixels 80:16:8
+
+track magCapBbw
+shortLabel magCapB
+longLabel magCapB
+parent strainCov
+type bigWig 0 380
+visibility full
+maxHeightPixels 80:16:8
+
+track magCapCbw
+shortLabel magCapC
+longLabel magCapC
+parent strainCov
+type bigWig 0 80
+visibility full
+maxHeightPixels 80:16:8
+
+track magCapDbw
+shortLabel magCapD
+longLabel magCapD
+parent strainCov
+type bigWig 0 180
+visibility full
+maxHeightPixels 80:16:8
+
+track magCapEbw
+shortLabel magCapE
+longLabel magCapE
+parent strainCov
+type bigWig 0 150
+visibility full
+maxHeightPixels 80:16:8
+
+track magCapFbw
+shortLabel magCapF
+longLabel magCapF
+parent strainCov
+type bigWig 0 180
+visibility full
+maxHeightPixels 80:16:8
+
+track magCapGbw
+shortLabel magCapG
+longLabel magCapG
+parent strainCov
+type bigWig 0 150
+visibility full
+maxHeightPixels 80:16:8
+
+track magCapHbw
+shortLabel magCapH
+longLabel magCapH
+parent strainCov
+type bigWig 0 180
+visibility full
+maxHeightPixels 80:16:8
+
+track magCapIbw
+shortLabel magCapI
+longLabel magCapI
+parent strainCov
+type bigWig 0 300
+visibility full
+maxHeightPixels 80:16:8
